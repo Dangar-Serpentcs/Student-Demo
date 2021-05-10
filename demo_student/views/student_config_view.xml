@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="department_department_tree_view" model="ir.ui.view">
+        <field name="name">department.department.tree.view</field>
+        <field name="model">department.department</field>
+        <field name="arch" type="xml">
+                <tree string="Department">
+                    <field name="dept_name"/>
+                </tree>
+        </field>
+    </record>
+
+    <record id="config_dept_form_view" model="ir.ui.view">
+        <field name="name">config.dept.form.view</field>
+        <field name="model">department.department</field>
+        <field name="arch" type="xml">
+            <form string="Department">
+                <sheet>
+                <div class="oe_title">
+                    <h1>
+                        <field name="Department" readonly="1"/>
+                    </h1>
+                </div>
+                    <group>
+                        <group>
+                            <field name="dept_name" required="True"/>
+                        </group>
+                        <group>
+                            <field name="dept_code" required="True"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Subject">
+                              <field name="dept_ids" widget="one2many">
+                                  <tree>
+<!--                                      <field name="sub_id"/>-->
+                                      <field name="sub_name"/>
+                                  </tree>
+                              </field>
+                        </page>
+                    </notebook>
+                </sheet>
+             </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="department_department_action">
+        <field name="name">department</field>
+        <field name="res_model">department.department</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="department_department_tree_view"/>
+    </record>
+
+<!--    Subject Information-->
+     <record id="subj_tree_view" model="ir.ui.view">
+        <field name="name">subj.tree.view</field>
+        <field name="model">subject.subject</field>
+        <field name="arch" type="xml">
+                <tree string="Subject">
+                    <field name="sub_name"/>
+                </tree>
+        </field>
+    </record>
+
+    <record id="subj_form_view" model="ir.ui.view">
+        <field name="name">subj.form.view</field>
+        <field name="model">subject.subject</field>
+        <field name="arch" type="xml">
+            <form string="Subject">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="sub_name"/>
+                            <field name="sub_id" string="Department"/>
+                        </group>
+                        <group>
+                            <field name="sub_code"/>
+                        </group>
+                    </group>
+                </sheet>
+             </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="subj_action">
+        <field name="name">subject</field>
+        <field name="res_model">subject.subject</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="subj_tree_view"/>
+    </record>
+
+<!--    Hobby Information-->
+    <record id="hobby_tree_view" model="ir.ui.view">
+        <field name="name">hobby.tree.view</field>
+        <field name="model">student.hobby</field>
+        <field name="arch" type="xml">
+                <tree string="Hobby" editable="bottom">
+                    <field name="hobby_list"/>
+                </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="hobby_action">
+        <field name="name">Hobby</field>
+        <field name="res_model">student.hobby</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="hobby_tree_view"/>
+    </record>
+
+    <menuitem name="Configuration" id="config_menu" parent="demo_student.student_student_main_menu"
+          groups="-demo_student.group_teacher"/>
+    <menuitem name="Department" id="dept_menu" parent="config_menu"
+                action="department_department_action"/>
+    <menuitem name="Subject" id="subj_menu" parent="config_menu" action="subj_action"/>
+    <menuitem name="Hobby List" id="hobby_menu" parent="config_menu"  action="hobby_action"/>
+
+</odoo>

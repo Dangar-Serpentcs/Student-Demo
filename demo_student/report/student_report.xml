@@ -1,0 +1,131 @@
+<odoo>
+    <template id="report_student_info">
+        <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.internal_layout">
+                        <div class="page">
+                            <div class="border border-top-0 border-right-0 border-left-0 border-info">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h4 class="text-right w-100">
+                                            <strong>
+                                                <span t-field="o.name"/>
+                                            </strong>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <table style="width:100%">
+                                <tr>
+                                    <td>
+                                        <table style="width:100%">
+                                            <tr style="height:70%;">
+                                                <td align="center" valign="center">
+                                                    <img t-if="o.std_image" t-att-src="image_data_uri(o.std_image)" style="max-height:85pt;max-width:90%" alt="Student Image"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table style="width:100%">
+                                            <tr>
+                                                <th style="text-align:center;border:1px solid">
+                                                    Name
+                                                </th>
+                                                <th style="text-align:center;border:1px solid" >
+                                                    Student ID
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;border:1px solid">
+                                                    <t t-if="o.name">
+                                                        <span t-field="o.name"/>
+                                                    </t>
+                                                </td>
+                                                <td style="text-align:center;border:1px solid">
+                                                    <t t-if="o.id">
+                                                        <span t-field="o.id"/>
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th style="text-align:center;border:1px solid">
+                                                    Phone
+                                                </th>
+                                                <th style="text-align:center;border:1px solid">
+                                                    Gender
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;border:1px solid">
+                                                    <t t-if="o.phone">
+                                                        <span t-field="o.phone"/>
+                                                    </t>
+                                                </td>
+                                                <td style="text-align:center;border:1px solid">
+                                                    <t t-if="o.gender">
+                                                        <span t-field="o.gender"/>
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th style="text-align:center;border:1px solid">
+                                                     user name
+                                                </th>
+                                                <th style="text-align:center;border:1px solid">
+                                                     Email
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;border:1px solid">
+                                                         <span t-esc="user_name"/>
+                                                </td>
+                                                <td style="text-align:center;border:1px solid">
+
+                                                        <span t-esc="email"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th style="text-align:center;border:1px solid">
+                                                     Join Date
+                                                </th>
+                                                <th style="text-align:center;border:1px solid">
+                                                     End Date
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;border:1px solid">
+                                                         <span t-esc="start_date"/>
+                                                </td>
+                                                <td style="text-align:center;border:1px solid">
+
+                                                        <span t-esc="end_date"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th style="text-align:center;border:1px solid">
+                                                     Department Name
+                                                </th>
+                                                <th style="text-align:center;border:1px solid">
+                                                     Department Code
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;border:1px solid">
+                                                         <span t-esc="dept_name"/>
+                                                </td>
+                                                <td style="text-align:center;border:1px solid">
+
+                                                        <span t-esc="dept_code"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+    </template>
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+student_base_user_group,student_base_user_group,model_student_student,base.group_user,1,1,1,1
+teacher_base_user_group,teacher_base_user_group,model_teacher_information,base.group_user,1,1,1,1
+department_base_user_group,department_base_user_group,model_department_department,base.group_user,1,1,1,1
+subject_base_user_group,subject_base_user_group,model_subject_subject,base.group_user,1,1,1,1
+hobby_base_user_group,hobby_base_user_group,model_student_hobby,base.group_user,1,1,1,1
