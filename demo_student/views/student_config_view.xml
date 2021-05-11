@@ -33,7 +33,6 @@
                         <page string="Subject">
                               <field name="dept_ids" widget="one2many">
                                   <tree>
-<!--                                      <field name="sub_id"/>-->
                                       <field name="sub_name"/>
                                   </tree>
                               </field>

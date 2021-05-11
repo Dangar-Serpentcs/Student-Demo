@@ -22,6 +22,3 @@ class StudentReportWiz(models.TransientModel):
                 }
         return self.env.ref('demo_student.action_report_student').report_action(student, data=datas)
 
-        # print('=-==========ctx-----', ctx)
-        # print('------------', self.env.context, std_id, self.name)
-
