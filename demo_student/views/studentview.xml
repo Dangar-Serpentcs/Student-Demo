@@ -1,25 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-<!--    <record id="hr_employee_form_view_inherited" model="ir.ui.view">-->
-<!--        <field name="name">hr.employee.form.view.inherited</field>-->
-<!--        <field name="model">hr.employee</field>-->
-<!--        <field name="inherit_id" ref="hr.view_employee_form"/>-->
-<!--        <field name="arch" type="xml">-->
-<!--           <xpath expr="//field[@name='parent_id']" position="after">-->
-<!--                <field name="std_id"/>-->
-<!--            </xpath>-->
-<!--            <xpath expr="//field[@name='parent_id']" position="attributes">-->
-<!--                <attribute name="domain">[('department_id', '=',department_id)]</attribute>-->
-<!--            </xpath>-->
-<!--            <xpath expr="//field[@name='parent_id']" position="replace">-->
-<!--            </xpath>-->
-<!--            <xpath expr="//field[@name='mobile_phone']" position="before">-->
-<!--                 <field name="parent_id" domain="[('department_id', '=',department_id)]"/>-->
-<!--            </xpath>-->
-<!--        </field>-->
-<!--    </record>-->
-
     <record id="view_student_search" model="ir.ui.view">
         <field name="name">view.student.search</field>
         <field name="model">student.student</field>
@@ -38,7 +18,6 @@
         <field name="name">Student User</field>
         <field name="res_model">res.users</field>
         <field name="view_mode">form</field>
-<!--        <field name="context">{'search_default_student_id': active_id, 'default_student_id': active_id}</field>-->
     </record>
 
     <record id="student_student_form_view" model="ir.ui.view">
@@ -49,15 +28,6 @@
                 <field name="active" invisible="1"/>
                 <header>
                     <field name="state" widget="statusbar"/>
-<!--                    <div class="oe_button_box" name="button_box">-->
-<!--	                	<button-->
-<!--	                        type="action"-->
-<!--	                        name="%(demo_student.student_user_action)d"-->
-<!--                            string="create_user"-->
-<!--                            attrs="{'invisible': [('state','not in','approve'), ('active', '=', True)]}">-->
-<!--	                        <field name="user_name"/>-->
-<!--	                    </button>-->
-<!--                    </div>-->
                     <button name="create_user" string="Create Student User" type="object" class="btn-primary"
                             attrs="{'invisible': ['|',('state','not in','approve'), ('user_id','!=',False)] }"/>
                     <button name="state_change" string="Approve" type="object" class="btn btn-primary"
@@ -81,11 +51,7 @@
                         <group>
                             <field name="phone"/>
                             <field name="birthdate"/>
-    <!--                        <field name="state"/>-->
                             <field name="above_eighteen"/>
-<!--                            <field name="partner_id"/>-->
-<!--                            <field name="category_id" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}" placeholder="Tags..."/>-->
-
                         </group>
                         <group string="Predefined Fields">
                                 <field name="current_date"/>
@@ -109,10 +75,6 @@
                             <group>
                                 <field name="sub_id" widget="many2many_tags" options="{'color_field': 'color','no_create_edit': True}"
                                        domain="[('sub_id', '=', dept_ids )]"/>
-<!--                                <tree string="Department">-->
-<!--                                    <field name="dept_name"/>-->
-<!--&lt;!&ndash;                                        <field name="dept_code"/>&ndash;&gt;-->
-<!--                                </tree>-->
                             </group>
                         </page>
                         <page string="Teacher">
@@ -144,7 +106,6 @@
         <field name="model">student.student</field>
         <field name="arch" type="xml">
        <kanban class="o_kanban_mobile">
-<!--                <kanban>-->
            <field name="name"/>
            <field name="code"/>
            <field name="std_image"/>
@@ -154,39 +115,13 @@
                        <div class="o_kanban_image">
                            <field name="std_image" widget="image" class="oe_avatar"/>
                        </div>
-<!--                        <div class="oe_kanban_details">-->
-<!--                           <strong class="o_kanban_record_title">-->
-<!--                               <field name="name"/>-->
-<!--                               <field name="code"/>-->
-<!--                           </strong>-->
-<!--                        </div>-->
-                           <div class="o_kanban_tags_section">
-                               <ul>
-                                   <li>Name: <field name="name"/></li>
-                                   <li>Code: <field name="code"/></li>
-                               </ul>
-                           </div>
-
+                       <div class="o_kanban_tags_section">
+                           <ul>
+                               <li>Name: <field name="name"/></li>
+                               <li>Code: <field name="code"/></li>
+                           </ul>
+                       </div>
                    </div>
-<!--                   <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_student_student_kanban">-->
-<!--                       <t t-if="record.std_image.raw_value">-->
-<!--                           <div class="o_kanban_image">-->
-<!--                               <img t-att-src="kanban_image('student.student', 'std_image', record.id.raw_value)" alt="Logo"/>-->
-<!--                           </div>-->
-<!--                       </t>-->
-<!--                       <t t-else="">-->
-<!--                           <img class="o_kanban_image" alt="Avatar" t-att-src='_s + "base/static/img/avatar.png"'/>-->
-<!--                       </t>-->
-        <!--                           <div class="o_kanban_image">-->
-        <!--                                <img alt="Avatar" t-att-src="kanban_image('student.student', 'image_medium',record.id.raw_value)"/>-->
-        <!--                            </div>-->
-<!--                       <div class="oe_kanban_details">-->
-<!--                           <strong class="o_kanban_record_title">-->
-<!--                               <fields name="name"/>-->
-<!--                               <fields name="code"/>-->
-<!--                           </strong>-->
-<!--                       </div>-->
-<!--                   </div>-->
                </t>
            </templates>
        </kanban>
@@ -237,7 +172,6 @@
                             <page string="Student">
                                 <group string="Relational Fields">
                                         <field name="student_id"/>
-<!--                                    <field name="b_date"/>-->
                                 </group>
                             </page>
                         </notebook>

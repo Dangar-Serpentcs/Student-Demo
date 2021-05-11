@@ -6,8 +6,7 @@ class DepartmentDepartment(models.Model):
     _description = 'Department'
     _rec_name = 'dept_name'
 
-    dept_ids = fields.One2many('subject.subject', 'sub_id',
-    				string="Department name")
+    dept_ids = fields.One2many('subject.subject', 'sub_id', string="Department name")
     dept_name = fields.Char("Department Name", required="True")
     dept_code = fields.Char("code")
     Department = fields.Char("Department")
